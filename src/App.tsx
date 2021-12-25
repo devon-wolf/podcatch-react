@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import AppBar from './components/AppBar';
+import AppBar from './components/app-bar/AppBar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import FeedListPage from './pages/FeedListPage';
-import LibraryPage from './pages/LibraryPage';
-import FeedDetailPage from './pages/FeedDetailPage';
-import QueuePage from './pages/QueuePage';
+import HomePage from './pages/home/HomePage';
+import FeedListPage from './pages/feed-list/FeedListPage';
+import LibraryPage from './pages/library/LibraryPage';
+import FeedDetailPage from './pages/feed-detail/FeedDetailPage';
+import QueuePage from './pages/queue/QueuePage';
 
 function App(): JSX.Element {
   return (

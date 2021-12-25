@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Feed } from '../types';
-import { makeUrlPath } from '../utils/stringUtils';
+import { Feed } from '../../types';
+import { makeUrlPath } from '../../utils/stringUtils';
 
 const FeedListPage = (): JSX.Element => {
   const [feeds, setFeeds] = useState<Feed[]>([]);
