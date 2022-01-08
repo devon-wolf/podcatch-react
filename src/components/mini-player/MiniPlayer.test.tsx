@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import MiniPlayer from './MiniPlayer';
 
 describe('mini-player', () => {
-  const testPlayerProps = {
+  const defaultProps = {
     audioUrl:
       'https://sphinx.acast.com/themagnusarchives/mag-goodbyefornow/media.mp3',
     audioTitle: 'MAG - Goodbye for Now',
@@ -13,7 +13,7 @@ describe('mini-player', () => {
   it('renders successfully', () => {
     const { baseElement } = render(
       <BrowserRouter>
-        <MiniPlayer {...testPlayerProps} />
+        <MiniPlayer {...defaultProps} />
       </BrowserRouter>
     );
     expect(baseElement).toBeTruthy();

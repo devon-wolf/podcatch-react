@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import FeedListItem from '../../components/feed-list/FeedListItem';
 import { Feed } from '../../types';
 import { addLocalFeed, getLocalFeeds } from '../../utils/localStorageUtils';
 import { makeUrlPath } from '../../utils/stringUtils';
@@ -15,9 +16,13 @@ const FeedListPage = (): JSX.Element => {
   const handleNewFeedSubmit = (e: FormEvent): void => {
     e.preventDefault();
     const randomNumber = (Math.random() * 1000).toString();
+    // TODO visit the URL and get the title data from the XML
+    // const title = getTitleFromXml(newFeedUrl);
     const newFeed = {
+      // id: `${title}-${randomNumber}`
       id: randomNumber,
       url: newFeedUrl,
+      // title,
       title: `test-feed-${randomNumber}`,
       dateAdded: Date.now(),
     };
@@ -41,9 +46,7 @@ const FeedListPage = (): JSX.Element => {
       {feeds.length > 0 ? (
         <ul aria-label="added feeds">
           {feeds?.map((feed) => (
-            <li key={feed.id}>
-              <Link to={`/feeds/${makeUrlPath(feed.title)}`}>{feed.title}</Link>
-            </li>
+            <FeedListItem key={feed.id} title={feed.title} />
           ))}
         </ul>
       ) : (
