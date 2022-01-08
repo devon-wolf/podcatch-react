@@ -16,11 +16,11 @@ const FeedListPage = (): JSX.Element => {
     e.preventDefault();
     const randomNumber = (Math.random() * 1000).toString();
     const newFeed = {
-        id: randomNumber,
-        url: newFeedUrl,
-        title: `test-feed-${randomNumber}`,
-        dateAdded: Date.now(),
-    }
+      id: randomNumber,
+      url: newFeedUrl,
+      title: `test-feed-${randomNumber}`,
+      dateAdded: Date.now(),
+    };
     addLocalFeed(newFeed);
     setFeeds(getLocalFeeds());
     setNewFeedUrl('');

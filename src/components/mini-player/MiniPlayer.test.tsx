@@ -5,7 +5,8 @@ import MiniPlayer from './MiniPlayer';
 
 describe('mini-player', () => {
   const testPlayerProps = {
-    audioUrl: 'https://sphinx.acast.com/themagnusarchives/mag-goodbyefornow/media.mp3',
+    audioUrl:
+      'https://sphinx.acast.com/themagnusarchives/mag-goodbyefornow/media.mp3',
     audioTitle: 'MAG - Goodbye for Now',
   };
 
