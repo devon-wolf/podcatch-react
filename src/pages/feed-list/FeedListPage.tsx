@@ -1,10 +1,11 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Feed } from '../../types';
+import { addLocalFeed, getLocalFeeds } from '../../utils/localStorageUtils';
 import { makeUrlPath } from '../../utils/stringUtils';
 
 const FeedListPage = (): JSX.Element => {
-  const [feeds, setFeeds] = useState<Feed[]>([]);
+  const [feeds, setFeeds] = useState<Feed[]>(getLocalFeeds());
   const [newFeedUrl, setNewFeedUrl] = useState<string>('');
 
   const handleFeedInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -13,15 +14,15 @@ const FeedListPage = (): JSX.Element => {
 
   const handleNewFeedSubmit = (e: FormEvent): void => {
     e.preventDefault();
-    setFeeds([
-      ...feeds,
-      {
-        id: (Math.random() * 1000).toString(),
+    const randomNumber = (Math.random() * 1000).toString();
+    const newFeed = {
+        id: randomNumber,
         url: newFeedUrl,
-        title: 'test feed',
+        title: `test-feed-${randomNumber}`,
         dateAdded: Date.now(),
-      },
-    ]);
+    }
+    addLocalFeed(newFeed);
+    setFeeds(getLocalFeeds());
     setNewFeedUrl('');
   };
 
