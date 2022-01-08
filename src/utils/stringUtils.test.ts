@@ -27,9 +27,9 @@ describe('string utils', () => {
   // TODO continue tests with weird cases
 
   it('replaces hyphens with spaces', () => {
-      const testString = 'this-is-a-sentence';
-      const expected = 'this is a sentence';
-      const actual = splitUrlPath(testString);
-      expect(actual).toEqual(expected);
-  })
+    const testString = 'this-is-a-sentence';
+    const expected = 'this is a sentence';
+    const actual = splitUrlPath(testString);
+    expect(actual).toEqual(expected);
+  });
 });
